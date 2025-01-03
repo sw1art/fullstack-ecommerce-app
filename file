@@ -1,0 +1,29 @@
+Products:
+Поля: product_id, name, description, price, discount, stock, sku, category_id, images(нужно список изображений), dimensions (например, { "length": 10, "width": 5, "height": 2 }), weight, created_at
+
+Cart:
+Поля: cart_id, user_id, product_id, quantity, added_at, price_at_addition, discount_at_addition, status, updated_at
+
+Users:
+Поля: user_id, username, email, password_hash, phone_number, avatar_url, address (например, { "city": "Москва", "street": "Ленина, 10", "zip": "123456" }), is_verified, created_at
+
+Categories:
+Поля: category_id, name, description, parent_id, created_at
+
+Orders (таблица заказов):
+Поля: order_idб buyer_id, shipping_address (например, { "city": "Москва", "street": "Ленина, 10", "zip": "123456" } или сделать интеграцию со службами доставки, пока не знаю), total_amount, delivery_fee, status, tracking_number, delivery_service, payment_status, created_at
+
+Order_Items: (Таблица товаров в заказе)
+Поля: order_item_id, order_id, product_id, quantity, price, discount, subtotal
+
+Transactions:
+Поля: transaction_id, order_id, payment_method, payment_status, transaction_date, payment_reference, amount
+
+Reviews:
+Поля: review_id, product_id, user_id, rating, comment, response, created_at
+
+Wishlists:
+Поля: wishlist_id, user_id, product_id, added_at
+
+Action_Logs:
+Поля: log_id, user_id, action_type, action_description, ip_address, user_agent, created_at
